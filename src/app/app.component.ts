@@ -5,6 +5,8 @@ import { SlideComponent } from './components/slide/slide.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { CardComponent } from './components/card/card.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { CardsHabitacionesComponent } from './components/cards-habitaciones/cards-habitaciones.component';
+import { SlidesHotelesComponent } from './components/slides-hoteles/slides-hoteles.component';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +16,9 @@ import { FooterComponent } from './components/footer/footer.component';
     SlideComponent,
     NavbarComponent,
     CardComponent,
-    FooterComponent
+    FooterComponent,
+    CardsHabitacionesComponent,
+    SlidesHotelesComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

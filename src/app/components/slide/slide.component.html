@@ -1,25 +1,35 @@
-
 <section
   class="relative bg-[url(https://images.unsplash.com/photo-1604014237800-1c9102c219da?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80)] bg-cover bg-center bg-no-repeat"
 >
-  <div
-    class="absolute inset-0 bg-white/50"
-  ></div>
+  <div class="absolute inset-0 bg-white/50"></div>
 
-  <div
-    class="relative mx-auto max-w-screen-xl px-4 py-32 sm:px-6 lg:flex lg:h-screen lg:items-center lg:px-8"
-  >
-    <div class="max-w-xl text-center ltr:sm:text-left rtl:sm:text-right">
+  <div class="relative mx-auto max-w-screen-xl px-4 py-32 sm:px-6 lg:flex lg:justify-between lg:items-center lg:px-8 lg:h-screen">
+
+    <!-- Sección de Texto -->
+    <div class="max-w-xl text-center ltr:sm:text-left rtl:sm:text-right lg:w-1/2">
       <h1 class="text-3xl font-extrabold sm:text-5xl">
         Un paraíso natural para
-
         <strong class="block font-extrabold text-rose-700"> Desconectar. </strong>
       </h1>
-
       <p class="mt-4 max-w-lg sm:text-xl/relaxed">
         Descansa en la naturaleza con el confort que mereces. Descubre nuestras exclusivas habitaciones y vive experiencias inolvidables en armonía con el medio ambiente.
       </p>
-
     </div>
+
+    <!-- Carrusel de Imágenes -->
+    <div class="relative w-full max-w-2xl lg:w-1/2 overflow-hidden rounded-lg">
+      <div #slider class="flex transition-transform duration-700 ease-in-out">
+        <img *ngFor="let img of images" [src]="img" class="w-full flex-shrink-0">
+      </div>
+
+      <!-- Botones de navegación -->
+      <button (click)="prevSlide()" class="absolute top-1/2 left-4 -translate-y-1/2 bg-gray-800/50 p-2 rounded-full text-white">
+        &#10094;
+      </button>
+      <button (click)="nextSlide()" class="absolute top-1/2 right-4 -translate-y-1/2 bg-gray-800/50 p-2 rounded-full text-white">
+        &#10095;
+      </button>
+    </div>
+
   </div>
 </section>
