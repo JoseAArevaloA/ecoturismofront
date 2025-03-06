@@ -1,0 +1,45 @@
+<div class="relative w-full max-w-4xl mx-auto mt-10 overflow-hidden rounded-lg">
+  <!-- Contenedor de las imágenes -->
+  <div id="slider" class="flex transition-transform duration-700 ease-in-out">
+    <img src="https://a0.muscache.com/im/pictures/prohost-api/Hosting-39871434/original/6df04e41-33af-4542-8a46-d4bed82338af.jpeg?im_w=720&im_format=avif" class="w-full flex-shrink-0">
+    <img src="https://a0.muscache.com/im/pictures/a6bab7cd-3ecd-4743-9f7b-98958af85f25.jpg?im_w=720&im_format=avif" class="w-full flex-shrink-0">
+    <img src="https://a0.muscache.com/im/pictures/miso/Hosting-642033897110191203/original/0f644626-0a2b-480e-900a-9f5a3ba7f59d.jpeg?im_w=720&im_format=avif" class="w-full flex-shrink-0">
+    <img src="https://a0.muscache.com/im/pictures/miso/Hosting-1045347397943323289/original/3ef3a976-9659-45e3-856e-a83082d0b9a4.jpeg?im_w=720&im_format=avif" class="w-full flex-shrink-0">
+  </div>
+
+  <!-- Botones de navegación -->
+  <button id="prev" class="absolute top-1/2 left-4 -translate-y-1/2 bg-gray-800/50 p-2 rounded-full text-white">
+    &#10094;
+  </button>
+  <button id="next" class="absolute top-1/2 right-4 -translate-y-1/2 bg-gray-800/50 p-2 rounded-full text-white">
+    &#10095;
+  </button>
+</div>
+
+<script>
+  const slider = document.getElementById("slider");
+  const images = slider.children;
+  let index = 0;
+
+  function showSlide(i) {
+    if (i >= images.length) index = 0;
+    if (i < 0) index = images.length - 1;
+    slider.style.transform = `translateX(-${index * 100}%)`;
+  }
+
+  document.getElementById("next").addEventListener("click", () => {
+    index++;
+    showSlide(index);
+  });
+
+  document.getElementById("prev").addEventListener("click", () => {
+    index--;
+    showSlide(index);
+  });
+
+  // Cambio automático cada 5 segundos
+  setInterval(() => {
+    index++;
+    showSlide(index);
+  }, 5000);
+</script>
