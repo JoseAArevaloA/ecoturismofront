@@ -2,22 +2,13 @@
   <header class="absolute inset-x-0 top-0 z-50 bg-white">
     <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
       <div class="flex lg:flex-1">
-        <a href="#" class="-m-1.5 p-1.5">
+        <a routerLink="/" class="-m-1.5 p-1.5">
           <span>Eco-Turismo</span>
         </a>
       </div>
-      <div class="flex lg:hidden">
-        <button onclick="document.getElementById('mobile-menu').classList.remove('hidden', 'translate-x-full')"
-          id="menu-btn" type="button"
-          class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
-          <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-            aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-          </svg>
-        </button>
-      </div>
-      <div class="hidden lg:flex lg:gap-x-12">
-        <a href="./../../pages/home/home.component.html" class="text-sm/6 font-semibold text-gray-900">Inicio</a>
+
+      <div class="lg:flex lg:gap-x-12">
+        <a routerLink="/" class="text-sm/6 font-semibold text-gray-900">Inicio</a>
       </div>
     </nav>
   </header>

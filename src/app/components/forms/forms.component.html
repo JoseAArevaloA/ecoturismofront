@@ -2,35 +2,35 @@
   <h2 class="text-4xl font-bold text-center text-black">Registrarme</h2>
 </div>
 
-<form class="max-w-sm mx-auto mt-20">
+<form (submit)="register()" class="max-w-sm mx-auto mt-20">
   <div class="mb-5">
 
     <label for="email" class="block mb-2 text-sm font-medium text-gray-900 white:text-black">Correo electrónico</label>
-    <input type="email" id="email"
+    <input type="email" [(ngModel)]="email"  id="email" name="email"
       class="shadow-xs bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 white:bg-gray-700 white:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-xs-light"
       placeholder="name@gmail.com" required />
   </div>
   <div class="mb-5">
     <label for="name" class="block mb-2 text-sm font-medium text-gray-900 white:text-black">Primer nombre</label>
-    <input type="text" id="name"
-      class="shadow-xs bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 white:bg-gray-700 white:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-xs-light"
+    <input type="text" id="name" [(ngModel)]="firstName" name="firstName"
+      class="shadow-xs bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 white:bg-gray-700 white:border-gray-600 dark:placeholder-gray-400 dark:text-dark dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-xs-light"
       placeholder="Tu primer nombre" required />
   </div>
   <div class="mb-5">
     <label for="name" class="block mb-2 text-sm font-medium text-gray-900 white:text-black">Apellidos</label>
-    <input type="text" id="lastName"
-      class="shadow-xs bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 white:bg-gray-700 white:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-xs-light"
+    <input type="text" id="lastName" [(ngModel)]="lastName" name="lastName"
+      class="shadow-xs bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 white:bg-gray-700 white:border-gray-600 dark:placeholder-gray-400 dark:text-dark dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-xs-light"
       placeholder="Tus apellidos" required />
   </div>
   <div class="mb-5">
     <label for="name" class="block mb-2 text-sm font-medium text-gray-900 white:text-black">Número de télefono</label>
-    <input type="number" id="phone"
-      class="shadow-xs bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 white:bg-gray-700 white:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-xs-light"
+    <input type="number" id="phone" [(ngModel)]="phone" (ngModelChange)="phone = $event ? +$event : 0" name="phone"
+      class="shadow-xs bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 white:bg-gray-700 white:border-gray-600 dark:placeholder-gray-400 dark:text-dark dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-xs-light"
       placeholder="3123456789" required />
   </div>
   <div class="mb-5">
     <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 white:text-dark">Selecciona tu tipo de documento</label>
-    <select id="countries"
+    <select id="countries" [(ngModel)]="typeDocument" name="typeDocument"
       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 white:bg-gray-700 white:border-gray-600 dark:placeholder-gray-400 dark:text-dark dark:focus:ring-blue-500 dark:focus:border-blue-500">
 
       <option>Cédula de ciudadanía</option>
@@ -41,20 +41,20 @@
   </div>
   <div class="mb-5">
     <label for="name" class="block mb-2 text-sm font-medium text-gray-900 white:text-black">Número de documento</label>
-    <input type="number" id="numberDocument"
-      class="shadow-xs bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 white:bg-gray-700 white:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-xs-light"
+    <input type="number" id="numberDocument" [(ngModel)]="NumDocument" name="NumDocument"
+      class="shadow-xs bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 white:bg-gray-700 white:border-gray-600 dark:placeholder-gray-400 dark:text-dark dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-xs-light"
       placeholder="1234567890" required />
   </div>
   <div class="mb-5">
     <label for="password" class="block mb-2 text-sm font-medium text-gray-900 white:text-dark">Contraseña</label>
-    <input type="password" id="password"
+    <input type="password" id="password" [(ngModel)]="password" name="password"
       class="shadow-xs bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 white:bg-gray-700 white:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-xs-light"
       required />
   </div>
   <div class="mb-5">
     <label for="repeat-password" class="block mb-2 text-sm font-medium text-gray-900 white:text-dark">Confirma
       contraseña</label>
-    <input type="password" id="repeat-password"
+    <input type="password" id="repeat-password" [(ngModel)]="confirmPass" name="confirmPass"
       class="shadow-xs bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 white:bg-gray-700 white:border-gray-600 dark:placeholder-black-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-xs-light"
       required />
   </div>

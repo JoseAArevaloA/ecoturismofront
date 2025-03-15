@@ -4,17 +4,36 @@
 <form class="max-w-sm mx-auto mt-20">
   <div class="mb-5">
     <label for="email" class="block mb-2 text-sm font-medium text-gray-900 white:text-black">Correo electrónico</label>
-    <input type="email" id="email"
+    <input type="email" id="email" name="email" [(ngModel)]="email"
       class="shadow-xs bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 white:bg-gray-700 white:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-xs-light"
       placeholder="name@gmail.com" required />
   </div>
   <div class="mb-5">
     <label for="password" class="block mb-2 text-sm font-medium text-gray-900 white:text-dark">Contraseña</label>
-    <input type="password" id="password"
+    <input type="password" id="password" name="password" [(ngModel)]="password"
       class="shadow-xs bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 white:bg-gray-700 white:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-xs-light"
       required />
   </div>
-  <button type="submit"
+  <button type="submit" (click)="login()"
     class="text-white bg-black-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Iniciar Sesión
   </button>
+  <div class="mt-10 text-center">
+    <p class="text-sm text-gray-500">¿No tienes cuenta? <a routerLink="/register" class="text-blue-600 hover:underline">Registrate</a></p>
+  </div>
 </form>
+
+<!-- <div *ngIf="isAuthenticated; else noAuth">
+
+  <br />
+
+  Is Authenticated: {{ isAuthenticated }}
+
+  <br />
+  Email
+  <pre>{{ email$ | async | json }}</pre>
+
+  <br />
+</div>
+<ng-template #noAuth>
+  <p>No estás autenticado. Inicia sesión.</p>
+</ng-template> -->
