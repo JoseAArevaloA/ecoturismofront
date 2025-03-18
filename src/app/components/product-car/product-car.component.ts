@@ -1,36 +1,46 @@
-import { Component } from '@angular/core';
-
+import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-product-car',
-  imports: [],
   templateUrl: './product-car.component.html',
-  styleUrl: './product-car.component.css'
+  styleUrls: ['./product-car.component.css']
 })
-export class ProductCarComponent {
-  // Lista de items disponibles
-  items = [
-    { name: 'Cocinera', price: 50000 },
-    { name: 'Clase apicultura', price: 70000 },
-    { name: 'Clase lombricultura', price: 40000 },
-    { name: 'licores', price: 40000 }
-  ];
-
-  // Lista de items seleccionados
-  selectedItems: { name: string, price: number }[] = [];
-
-  // Total de la compra
+export class ProductCarComponent implements OnInit {
+  additionalServices: { concept: string, amount: number}[] = [];
+  selectedServices: { concept: string, amount: number}[] = [];
   total = 0;
 
-  // Método para manejar la selección de items
-  onItemSelect(item: { name: string, price: number }, event: any) {
+  constructor(private http: HttpClient) {}
+
+  ngOnInit(): void {
+    this.fetchAdditionalServices();
+  }
+
+  fetchAdditionalServices(): void {
+    this.http.get<{ concept: string, amount: number }[]>('https://zwf7liwksa.execute-api.us-east-1.amazonaws.com/prod/hosting')
+      .subscribe(
+        (data) => {
+          this.additionalServices = data;
+        },
+        (error) => {
+          console.error('Error fetching services:', error);
+        }
+      );
+  }
+
+  onServiceSelect(service: { concept: string, amount: number }, event: any): void {
     if (event.target.checked) {
-      this.selectedItems.push(item); // Añadir item al carrito
-      this.total += item.price; // Sumar al total
+      this.selectedServices.push(service);
+      this.total += service.amount;
     } else {
-      this.selectedItems = this.selectedItems.filter(selectedItem => selectedItem.name !== item.name); // Eliminar item del carrito
-      this.total -= item.price; // Restar del total
+      this.selectedServices = this.selectedServices.filter(
+        selectedService => selectedService.concept !== service.concept
+      );
+      this.total -= service.amount;
     }
   }
 }
+
+
 

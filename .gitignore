@@ -35,6 +35,7 @@ tmp/
 !.vscode/launch.json
 !.vscode/extensions.json
 .history/*
+.vscode
 
 # Miscellaneous
 /.angular/cache
@@ -53,3 +54,6 @@ Thumbs.db
 # Ignorar archivos de Docker
 Dockerfile
 docker-compose.yml
+
+#ignorar archivos de despliegue
+/cdk2

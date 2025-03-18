@@ -1,25 +1,16 @@
 <div class="container">
   <!-- Div para la información del producto (izquierda) -->
   <div class="product-info">
-    <h2>EcoFinca El Manantial: Hospedaje y Experiencias Sostenibles</h2>
-    <p>Somos un refugio ecoturístico donde la naturaleza y la tradición se unen para ofrecer una experiencia inolvidable. 
-      Aquí podrás hospedarte en cabañas rústicas rodeadas de paisajes exuberantes y participar en actividades únicas como la apicultura, 
-      donde descubrirás el fascinante mundo de las abejas y degustarás miel artesanal. También aprenderás sobre lombricultura y el poder 
-      de las lombrices rojas en la regeneración del suelo, además de disfrutar de un taller de cocina campesina, donde nuestra cocinera 
-      local te enseñará a preparar deliciosos platos con ingredientes frescos de la finca.</p>
-    <p>Para quienes buscan experiencias sensoriales, ofrecemos un recorrido por la elaboración de licores artesanales con frutas y especias 
-      de la región, terminando con una cata exclusiva bajo las estrellas. En EcoFinca Paraíso, cada actividad está diseñada para reconectar 
-      con la tierra, aprender sobre sostenibilidad y disfrutar de la autenticidad del campo. ¡Ven a descubrir un estilo de vida en armonía 
-      con la naturaleza!</p>
-
+    <h2>{{hosting.title}}</h2>
+    <p>{{hosting.description}}</p>
     <h3>Experiencias y Servicios Disponibles</h3>
     <ul class="item-list">
       <!-- Nuevo control flow @for -->
-      @for (item of items; track item.name) {
+      @for (service of additionalServices; track service.concept) {
         <li>
           <label>
-            <input type="checkbox" [value]="item.name" (change)="onItemSelect(item, $event)">
-            {{ item.name }} - ${{ item.price }}
+            <input type="checkbox" [value]="service.concept" (change)="onServiceSelect(service, $event)">
+            {{ service.name }} - ${{ service.price }}
           </label>
         </li>
       }
@@ -31,9 +22,9 @@
     <h2 class="cart-title">Servicios adicionales</h2>
     <ul>
       <!-- Nuevo control flow @for -->
-      @for (selectedItem of selectedItems; track selectedItem.name) {
+      @for (selectedService of selectedServices; track selectedService.concept) {
         <li>
-          {{ selectedItem.name }} - ${{ selectedItem.price }}
+          {{ selectedService.concept }} - ${{ selectedService.amount}}
         </li>
       }
     </ul>

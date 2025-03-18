@@ -4,7 +4,6 @@ import { NavbarComponent } from '../../components/navbar/navbar.component';
 import { CardComponent } from '../../components/card/card.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { CardsHabitacionesComponent } from '../../components/cards-habitaciones/cards-habitaciones.component';
-import { SlidesHotelesComponent } from '../../components/slides-hoteles/slides-hoteles.component';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +13,6 @@ import { SlidesHotelesComponent } from '../../components/slides-hoteles/slides-h
     CardComponent,
     FooterComponent,
     CardsHabitacionesComponent,
-    SlidesHotelesComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'

@@ -1,34 +1,27 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { HeaderGaleryComponent } from "../header-galery/header-galery.component";
-// import { Hostingmodel } from '../../models/hosting.model';
+import { Component, OnInit, Input } from '@angular/core';
 import { HostingService } from '../../services/hosting.service';
+import { data } from 'aws-cdk';
 import { ActivatedRoute } from '@angular/router';
 import { Hosting } from '../../models/HostingModel';
 
 @Component({
-  selector: 'app-galery',
-  imports: [HeaderGaleryComponent],
-  templateUrl: './galery.component.html',
-  styleUrl: './galery.component.css'
+  selector: 'app-header-galery',
+  imports: [],
+  templateUrl: './header-galery.component.html',
+  styleUrl: './header-galery.component.css'
 })
-export class GaleryComponent implements OnInit{
+export class HeaderGaleryComponent implements OnInit{
   @Input() hosting!: Hosting;
   
   constructor(public hostingService: HostingService, private route: ActivatedRoute,){
 
   }
   ngOnInit(): void {
-    this.getHosting()
-  }
-
-  getHosting(): void {
     const id = this.route.snapshot.paramMap.get('id');
     if (id) {
       this.hostingService.getHosting(id).subscribe((data) => {
         this.hosting = data;
       });
     }
-
   }
 }
- 
