@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-ecoturismofront-dev-32abf-authRole",
+      "UnauthRoleArn": "arn:aws:iam::164797387787:role/amplify-ecoturismofront-dev-32abf-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::164797387787:role/amplify-ecoturismofront-dev-32abf-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-ecoturismofront-dev-32abf-deployment",
+      "UnauthRoleName": "amplify-ecoturismofront-dev-32abf-unauthRole",
+      "StackName": "amplify-ecoturismofront-dev-32abf",
+      "StackId": "arn:aws:cloudformation:us-east-2:164797387787:stack/amplify-ecoturismofront-dev-32abf/c3f3bcf0-0080-11f0-862c-060e1d965ad9",
+      "AmplifyAppId": "d3n1xvhiducv5t"
+    }
+  }
+}
