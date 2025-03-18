@@ -21,7 +21,8 @@
         <a href="#" class="text-sm/6 font-semibold text-gray-900">Reserva ahora</a>
       </div>
       <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-        <a href="#" class="text-sm/6 font-semibold text-gray-900">Log in <span aria-hidden="true">&rarr;</span></a>
+        <a routerLink="/loggin" id="log-in" class="text-sm/6 font-semibold text-gray-900">Log in <span aria-hidden="true">&rarr;</span></a>
+        <button (click)="signOut()" id="log-out" class="hidden text-sm/6 font-semibold text-gray-900">Log out <span aria-hidden="true">&rarr;</span></button>
       </div>
     </nav>
 
@@ -47,7 +48,8 @@
             <a href="#" class="block rounded-lg px-3 py-2 text-base font-semibold text-gray-900 hover:bg-gray-50">Reserva ahora</a>
           </div>
           <div class="py-6">
-            <a href="#" class="block rounded-lg px-3 py-2.5 text-base font-semibold text-gray-900 hover:bg-gray-50">Log in</a>
+            <a routerLink="/loggin" id="log-in-mobile" class="block rounded-lg px-3 py-2.5 text-base font-semibold text-gray-900 hover:bg-gray-50">Log in</a>
+            <button (click)="signOut()" id="log-out-mobile" class="hidden block rounded-lg px-3 py-2.5 text-base font-semibold text-gray-900 hover:bg-gray-50">Log out</button>
           </div>
         </div>
       </div>

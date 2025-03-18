@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { SlideComponent } from '../../components/slide/slide.component';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
 import { CardComponent } from '../../components/card/card.component';
-import { FooterComponent } from '../../components/footer/footer.component';
 import { CardsHabitacionesComponent } from '../../components/cards-habitaciones/cards-habitaciones.component';
+import { FooterComponent } from '../../components/footer/footer.component';
 
 @Component({
   selector: 'app-home',

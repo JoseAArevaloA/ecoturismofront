@@ -20,6 +20,11 @@
     "@angular/platform-browser-dynamic": "^19.2.0",
     "@angular/router": "^19.2.0",
     "aws-cdk": "^2.1003.0",
+    "@aws-amplify/auth": "6.11.5",
+    "@aws-amplify/ui-angular": "^5.0.39",
+    "amazon-cognito-identity-js": "^6.3.12",
+    "angular-auth-oidc-client": "19.0.0",
+    "aws-amplify": "^6.13.5",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"
