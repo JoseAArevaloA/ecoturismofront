@@ -1,0 +1,153 @@
+<app-navbar></app-navbar>
+<app-galery [hosting]="hosting"></app-galery>
+<div class="main-container">
+  <div class="detail-container">
+  <!-- Sección de Datos Básicos -->
+  <section class="detail-section">
+    <h2 >
+      <strong>{{ hosting.name }}: {{ hosting.title }}</strong>
+      
+    </h2>
+    <div>
+      <p><strong>Tipo:</strong> {{ hosting.type }}</p>
+      <p><strong>Descripción:</strong> {{ hosting.description }}</p>
+      <p><strong>Capacidad:</strong> {{ hosting.ability }} huéspedes</p>
+      <p><strong>Habitaciones:</strong> {{ hosting.rooms }}</p>
+      <p><strong>Teléfono:</strong> {{ hosting.phone }}</p>
+      <p><strong>Email:</strong> {{ hosting.email }}</p>
+      <p><strong>Métodos de Pago:</strong> {{ hosting.payment_method.join(', ') }}</p>
+    </div>
+  </section>
+
+  
+  <!-- Sección de Datos de Localización -->
+  <section class="detail-section">
+    <h2 (click)="toggleSection('location')">
+      Localización
+      <span class="toggle-icon">{{ isLocationVisible ? '-' : '+' }}</span>
+    </h2>
+    @if (isLocationVisible) {
+      <div>
+        <p><strong>País:</strong> {{ hosting.location.country }}</p>
+        <p><strong>Ciudad:</strong> {{ hosting.location.city }}</p>
+        <p><strong>Dirección:</strong> {{ hosting.location.adress }}</p>
+        <p><strong>Área:</strong> {{ hosting.location.area }}</p>
+        <p><strong>Latitud:</strong> {{ hosting.location.latitude }}</p>
+        <p><strong>Longitud:</strong> {{ hosting.location.longitude }}</p>
+      </div>
+    }
+  </section>
+
+   <!-- Sección de Datos de Servicios adicionales -->
+   <section class="detail-section">
+    <h2 (click)="toggleSection('additionalservices')">
+      Servicios adicionales
+      <span class="toggle-icon">{{ isAdditionalServicesVisible ? '-' : '+' }}</span>
+    </h2>
+    @if (isAdditionalServicesVisible) {
+      <div>
+        @for (service of additionalServices; track service.id) {
+          <label>
+            <input
+              type="checkbox"
+              [checked]="service.selected"
+              (change)="toggleService(service)"
+            />
+            {{ service.service }} - ${{ service.cost }}
+          </label>
+          <br />
+        }
+      </div>
+    }
+  </section>
+
+  <!-- Sección de Datos de Reglas -->
+  <section class="detail-section">
+    <h2 (click)="toggleSection('rules')">
+      Reglas
+      <span class="toggle-icon">{{ isRulesVisible ? '-' : '+' }}</span>
+    </h2>
+    @if (isRulesVisible) {
+      <div>
+        <p><strong>Título:</strong> {{ hosting.rule.title }}</p>
+        <p><strong>Categoría:</strong> {{ hosting.rule.category }}</p>
+        <p><strong>Descripción:</strong> {{ hosting.rule.description }}</p>
+        <p><strong>Penalización:</strong> {{ hosting.rule.penalty }}</p>
+        <p><strong>Estado:</strong> {{ hosting.rule.status }}</p>
+        <p><strong>Creado en:</strong> {{ hosting.rule.created_at }}</p>
+        <p><strong>Actualizado en:</strong> {{ hosting.rule.updated_at }}</p>
+      </div>
+    }
+  </section>
+  
+
+  <!-- Sección de Datos del Anfitrión -->
+  <section class="detail-section">
+    <h2 (click)="toggleSection('host')">
+      Datos del Anfitrión
+      <span class="toggle-icon">{{ isHostVisible ? '-' : '+' }}</span>
+    </h2>
+    @if (isHostVisible) {
+      <div>
+        <p><strong>Nombre:</strong> {{ hosting.amphitryon.name }} {{ hosting.amphitryon.lastname }}</p>
+        <p><strong>Email:</strong> {{ hosting.amphitryon.email }}</p>
+      </div>
+    }
+  </section>
+  </div>
+
+
+   <!-- Componente de Carrito -->
+   <section class="cart">
+    <h2 ><strong> Resumen de tu reserva</strong> </h2>
+
+    <!-- Selector de fechas -->
+    <div class="date-picker">
+      <mat-form-field appearance="fill">
+        <mat-label>Fecha de entrada</mat-label>
+        <input
+          matInput
+          [matDatepicker]="checkInPicker"
+          [ngModel]="checkInDate"
+          (ngModelChange)="onCheckInDateChange($event)"
+        >
+        <mat-datepicker-toggle matSuffix [for]="checkInPicker"></mat-datepicker-toggle>
+        <mat-datepicker #checkInPicker></mat-datepicker>
+      </mat-form-field>
+    
+      <mat-form-field appearance="fill">
+        <mat-label>Fecha de salida</mat-label>
+        <input
+          matInput
+          [matDatepicker]="checkOutPicker"
+          [ngModel]="checkOutDate"
+          (ngModelChange)="onCheckOutDateChange($event)"
+        >
+        <mat-datepicker-toggle matSuffix [for]="checkOutPicker"></mat-datepicker-toggle>
+        <mat-datepicker #checkOutPicker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    
+    <!-- Mostrar el número de noches -->
+    @if (numberOfNights > 0) {
+      <div>
+        <p><strong>Número de noches:</strong> {{ numberOfNights }}</p>
+      </div>
+    }
+<!-- Mostrar el subtotal precio de la habitación por X noches -->
+    <div class="Subtotal">
+      <p>Precio por noche x {{numberOfNights}} noches: {{hosting.room.price_per_night | currency:'COP ':'symbol':'1.2-2'}} x {{numberOfNights}}  </p>
+      <h3><strong>Subtotal habitación:</strong>  {{roomSubtotal | currency:'COP ':'symbol':'1.2-2' }} </h3>
+    </div>
+    <div class="Subtotal">
+      @for (service of selectedServices; track service.id) {
+        <p>{{ service.service }} - {{ service.cost | currency:'COP ':'symbol':'1.2-2' }}</p>
+      }
+      <p><strong>Subtotal servicios adicionales:</strong> {{ servicesSubtotal | currency:'COP ':'symbol':'1.2-2' }}</p>
+    </div>
+    <p><strong>Total:</strong> {{ total | currency:'COP ':'symbol':'1.2-2' }}</p>
+      <button class="order-btn">Reservar</button>
+  </section>
+</div>
+
+<app-footer></app-footer>

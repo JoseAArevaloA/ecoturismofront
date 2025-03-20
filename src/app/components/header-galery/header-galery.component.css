@@ -1,0 +1,49 @@
+h1 {
+    font-weight: 500;
+    font-size: 23px;
+    line-height: 30px;
+    margin-bottom: 8px;
+  }
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 20px;
+    margin-right: 20px;
+
+}
+.header-info {
+    display: block;
+    justify-content: space-between;
+    color: black;
+    flex-direction: column;
+    padding: 10px 5px;
+}
+
+.localizacion{
+  cursor: pointer;
+  text-decoration: underline;
+  margin-left: 20px;
+}
+
+.share-save {
+    display: flex;
+    flex-direction: row;
+   
+
+    >* {
+      padding: 8px;
+      gap: 8px;
+      cursor: pointer;
+      border-radius: 6px;
+
+      &:hover {
+        background-color: gainsboro;
+      }
+    }
+}
+
+.share,.save{
+    text-decoration: underline;
+  }
